@@ -20,6 +20,7 @@
     "gulp-sourcemaps": "2.6.x",
     "gulp-uglify": "^3.0.2",
     "gulp-webp": "^4.0.1",
+    "merge": "^1.2.1",
     "pixel-glass": "^1.0.13",
     "readable-stream": "^3.4.0",
     "stylelint": "10.1.x",
