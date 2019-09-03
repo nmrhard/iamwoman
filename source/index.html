@@ -1,6 +1,31 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+   <style>
+    HTML {
+      background-repeat: no-repeat;
+      background-position:  50% 0;
+      /* По умолчанию мобильный макет */
+      background-image: url( "img/iamwoman-mobile.jpg" );
+    }
+    /* Планшет */
+    @media ( min-width: 768px ) {
+      HTML {
+        /* Планшетный макет */
+        background-image: url( "img/cat-energy-index-tablet.jpg" );
+      }
+    }
+    /* Десктоп */
+    @media ( min-width: 1300px ) {
+      HTML {
+        /* Десктопный макет */
+        background-image: url( "img/cat-energy-index-desktop.jpg");
+      }
+    }
+    BODY {
+      opacity: 1;
+    }
+  </style>
   <meta charset="utf-8">
   <title>I am woman</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -10,7 +35,90 @@
 </head>
 <body>
   <header class="page-header">
-
+    <div class="container">
+      <div class="page-header--top">
+        <nav class="main-nav">
+          <button class="main-nav--toggle-menu" role="button"><span class="visually-hidden">Открыть меню</span></button>
+          <div class="main-nav--dropdown">
+            <h3 class="main-nav--title">Каталог</h3>
+            <ul class="main-nav--list-catalog">
+              <li class="main-nav--item">
+                <a class="main-nav--link" href="#">Пальто</a>
+              </li>
+              <li class="main-nav--item">
+                <a class="main-nav--link" href="#">Жилеты и жакеты</a>
+               </li>
+              <li class="main-nav--item">
+                 <a class="main-nav--link" href="#">Костюмы</a></li>
+              <li class="main-nav--item">
+                <a class="main-nav--link" href="#">Трикотаж</a>
+              </li>
+              <li class="main-nav--item">
+                <a class="main-nav--link" href="#">Платья</a>
+              </li>
+              <li class="main-nav--item">
+                <a class="main-nav--link" href="#">Блузы и топы</a>
+              </li>
+              <li class="main-nav--item">
+                <a class="main-nav--link" href="#">Футболки</a>
+              </li>
+              <li class="main-nav--item">
+                <a class="main-nav--link" href="#">Юбки и брюки</a>
+              </li>
+              <li class="main-nav--item">
+                <a class="main-nav--link" href="#">Аксессуары</a>
+              </li>
+            </ul>
+            <ul class="main-nav--company">
+               <li class="main-nav--item">
+                <a class="main-nav--link" href="#">О бренде</a>
+              </li>
+              <li class="main-nav--item">
+                <a class="main-nav--link" href="#">Оферта</a>
+              </li>
+              <li class="main-nav--item">
+                <a class="main-nav--link" href="#">Оплата и доставка</a>
+              </li>
+              <li class="main-nav--item">
+                <a class="main-nav--link" href="#">Возврат</a>
+              </li>
+              <li class="main-nav--item">
+                <a class="main-nav--link" href="#">Контакты</a>
+              </li>
+              <li class="main-nav--item">
+                <a class="main-nav--link" href="#">Отзывы</a>
+              </li>
+              <li class="main-nav--item">
+                <a class="main-nav--link" href="#">New</a>
+              </li>
+              <li class="main-nav--item">
+                <a class="main-nav--link" href="#">Sale</a>
+              </li>
+            </ul>
+          </div>
+          <div class="main-nav--user-menu">
+            <input class="main-nav--search" id="search-site" name="search" type="search">
+            <label for="search-site"><img src="img/magnifying-glass.png" width="16" height="16" alt="Поиск по сайту"></label>
+            </label>
+            <a class="main-nav--avatar" href="#">
+              <img src="img/avatar.png" width="14" height="16" alt="Профиль пользователя.">
+            </a>
+            <a class="main-nav--basket" href="#">
+              <img src="img/shopping-bag.png" width="15" height="16" alt="Офомление заказа.">
+            </a>
+          </div>
+        </nav>
+      </div>
+      <section class="promo">
+        <img class="promo-image" src="img/header-top-bg.jpg" width="219" height="389" alt="Девушка в профиль, в сером платье в крупную полоску с цветокм в руке и закрыми глазами.">
+        <h2 class="promo--title">
+          Новая <br>
+          круизная <br>
+          коллекция ‘19
+        </h2>
+        <a class="promo--link-catalog" href="#">Перейти в каталог</a>
+      </section>
+    </div>
   </header>
   <main class="page-main">
 
