@@ -101,6 +101,7 @@ gulp.task("server", function () {
   gulp.watch("source/less/**/*.less", gulp.series("css"));
   gulp.watch("source/img/*.svg").on("change", server.reload);
   gulp.watch("source/*.html").on("change", server.reload);
+  gulp.watch("source/js/*.js").on("change", gulp.series("jscompress"))
 });
 
 gulp.task("build", gulp.series("clean", "jscompress", "copy", "css", "htmlminify"));
