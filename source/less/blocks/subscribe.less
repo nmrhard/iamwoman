@@ -3,7 +3,7 @@
   padding-top: 24px;
   padding-bottom: 22px;
   background-color: #d09f61;
-  background-image: url("../../img/subscribe-bg.jpg");
+  background-image: url("../img/subscribe-bg.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -13,7 +13,7 @@
   padding-top: 24px;
   padding-bottom: 22px;
   background-color: #d09f61;
-  background-image: url("../../img/subscribe-bg.webp");
+  background-image: url("../img/subscribe-bg.webp");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -90,7 +90,13 @@
 }
 
 @media (min-width: @tablet-width) {
-  .subscribe {
+  .no-webp .subscribe {
+    margin-bottom: 140px;
+    padding: 0;
+    background: none;
+  }
+
+  .webp .subscribe {
     margin-bottom: 140px;
     padding: 0;
     background: none;
@@ -164,7 +170,7 @@
     padding-top: 111px;
     padding-left: 43px;
     padding-bottom: 145px;
-    background-image: url("../../img/subscribe-bg-desktop.jpg");
+    background-image: url("../img/subscribe-bg-desktop.jpg");
 
     &::before {
       top: 42px;
@@ -179,7 +185,7 @@
     padding-top: 111px;
     padding-left: 43px;
     padding-bottom: 145px;
-    background-image: url("../../img/subscribe-bg-desktop.webp");
+    background-image: url("../img/subscribe-bg-desktop.webp");
 
     &::before {
       top: 42px;
