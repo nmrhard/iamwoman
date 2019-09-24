@@ -1,4 +1,5 @@
 .promo {
+  position: relative;
   padding-top: 145px;
   padding-bottom: 181px;
 }
@@ -19,8 +20,243 @@
 
 .promo__image {
   position: absolute;
-  top: 51px;
+  top: 9px;
   left: 86px;
   z-index: -1;
 }
 
+@media (min-width: @tablet-width) {
+  .promo {
+    padding-top: 306px;
+    padding-bottom: 36px;
+  }
+
+  .promo__title {
+    margin-bottom: 35px;
+    margin-left: 20px;
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 43px;
+  }
+
+  .promo__link--catalog {
+    display: inline-block;
+    margin-bottom: 64px;
+    margin-left: 20px;
+    font-size: 16px;
+  }
+
+  .promo__image {
+    top: -292px;
+    right: 19px;
+    left: auto;
+    width: 393px;
+    height: 647px;
+  }
+
+  .promo__item {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 70px;
+  }
+
+  .promo__item-wrapper {
+    padding-top: 24px;
+    padding-bottom: 25px;
+    padding-left: 35px;
+    padding-right: 33px;
+    background-color: #ece5e1;
+    opacity: 0.8;
+  }
+
+  .promo__item-title {
+    margin: 0;
+    margin-bottom: 12px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #91161d;
+  }
+
+  .promo__item-price {
+    margin: 0;
+    margin-right: 8px;
+    position: relative;
+    font-weight: 600;
+    text-align: right;
+    color: #952226;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 98px;
+      width: 72px;
+      height: 2px;
+      margin-top: 1px;
+      background-color: #b87c7c;
+    }
+  }
+
+  .promo__bottom {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+  }
+
+  .promo__social {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    padding-top: 6px;
+    list-style-type: none;
+  }
+
+  .promo__action {
+    display: flex;
+  }
+
+  .promo__social-item {
+    position: relative;
+    margin-right: 42px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -30px;
+      width: 20px;
+      height: 1px;
+      background-color: @font-dark;
+    }
+  }
+
+  .promo__social-link {
+    font-size: 12px;
+    font-family: "Open Sans", "Arial", sans-serif;
+    color: @font-dark;
+  }
+
+  .promo__view-all {
+    padding-bottom: 3px;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    color: @font-dark;
+    text-decoration: underline;
+  }
+
+  .promo__sale {
+    position: absolute;
+    bottom: 200px;
+    left: -34px;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    transform: rotate(-90deg);
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: -125px;
+      width: 94px;
+      height: 2px;
+      background-color: #6e6a6a;
+    }
+  }
+}
+
+@media (min-width: @desktop-width) {
+  .promo {
+    padding-top: 231px;
+    padding-bottom: 29px;
+  }
+
+  .promo__image {
+    top: -15px;
+    left: 86px;
+    padding-top: 9px;
+    padding-left: 529px;
+    width: 605px;
+    height: 680px;
+  }
+
+  .promo__title {
+    position: relative;
+    margin-left: 0;
+    font-size: 48px;
+    line-height: 58px;
+  }
+
+  .promo__link--catalog {
+    margin-left: 0;
+    font-size: 18px;
+  }
+
+  .promo__sale {
+    bottom: 279px;
+    left: -37px;
+    font-size: 18px;
+    letter-spacing: 0.05em;
+
+    &::before {
+      top: 13px;
+    }
+  }
+
+  .promo__item {
+    margin-right: 120px;
+    margin-bottom: 54px;
+    padding-top: 25px;
+  }
+
+  .promo__item-wrapper {
+    padding-left: 43px;
+    padding-bottom: 29px;
+    padding-right: 45px;
+  }
+
+  .promo__item-price::before {
+    top: 13px;
+  }
+
+  .promo__social-item {
+    margin-right: 47px;
+
+    &:not(:last-child)::after {
+      top: 9px;
+      right: -37px;
+      width: 24px;
+    }
+  }
+
+  .promo__social-link {
+    font-size: 16px;
+  }
+
+  .promo__bottom {
+    margin-left: 80px;
+  }
+
+  .promo__action {
+    padding-top: 41px;
+  }
+
+  .promo__view-all {
+    font-size: 18px;
+  }
+
+  .promo__collection {
+    position: absolute;
+    top: 12px;
+    left: 338px;
+    font-size: 177px;
+    font-weight: 500;
+    color: #ece5e1;
+    opacity: 0.3;
+    z-index: -1;
+  }
+}

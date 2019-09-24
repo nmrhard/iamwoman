@@ -1,49 +1,33 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
- <style>
-  HTML {
-    background-repeat: no-repeat;
-    background-position:  50% 0;
-    /* По умолчанию мобильный макет */
-    background-image: url( "img/iamwoman-mobile.jpg" );
-  }
-  /* Планшет */
-  @media ( min-width: 768px ) {
-    HTML {
-      /* Планшетный макет */
-      background-image: url( "img/cat-energy-index-tablet.jpg" );
-    }
-  }
-  /* Десктоп */
-  @media ( min-width: 1300px ) {
-    HTML {
-      /* Десктопный макет */
-      background-image: url( "img/cat-energy-index-desktop.jpg");
-    }
-  }
-  BODY {
-    opacity: 1;
-  }
-</style>
 <meta charset="utf-8">
 <title>I am woman</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="preload" href="" as="font" crossorigin="anonymous">
-<link rel="preload" href="" as="font" crossorigin="anonymous">
+<link rel="preload" href="fonts/Cormorant-Regular.woff2" as="font" crossorigin="anonymous">
+<link rel="preload" href="fonts/Cormorant-SemiBold.woff2" as="font" crossorigin="anonymous">
 <link rel="stylesheet" href="css/style.min.css">
+<script src="js/modernizr-custom.min.js"></script>
 </head>
 <body>
-  <header class="page-header">
+  <header class="page-header" id="header">
     <h1 class="visually-hidden">Он-лайн магазин женской одежды I am woman</h1>
-    <div class="container">
+    <div class="container container--header">
       <div class="page-header__top">
         <nav class="main-nav">
-          <button class="main-nav__toggle-menu" role="button" aria-label="Открыть меню"></button>
+          <button class="main-nav__toggle-menu" type="button" aria-label="Открыть меню"></button>
+          <a class="main-nav__logo screen-only">
+            <picture>
+              <source type="image/webp" media="(min-width: 1300px)" srcset="img/logo-desktop.webp">
+              <source type="image/webp" srcset="img/logo.webp">
+              <source media="(min-width: 1300px)" srcset="img/logo-desktop.png">
+              <img class="main-nav__logo-image" src="img/logo.png" width="126" height="28" alt="I am woman.">
+            </picture>
+          </a>
           <div class="main-nav__dropdown main-nav__dropdown--closed">
             <div class="main-nav__button-wrapper">
-              <button class="main-nav__toggle-menu" role="button" aria-hidden="true"></button>
-              <button class="main-nav__close" role="button" aria-label="Закрыть меню"></button>
+              <button class="main-nav__toggle-menu mobile-only" type="button" aria-hidden="true"></button>
+              <button class="main-nav__close" type="button" aria-label="Закрыть меню"></button>
             </div>
             <h3 class="main-nav__title">Каталог</h3>
             <div class="main-nav__list-wrapper">
@@ -55,8 +39,9 @@
                   <a class="main-nav__link" href="#">Жилеты и жакеты</a>
                 </li>
                 <li class="main-nav__item">
-                 <a class="main-nav__link" href="#">Костюмы</a></li>
-                 <li class="main-nav__item">
+                  <a class="main-nav__link" href="#">Костюмы</a>
+                </li>
+                <li class="main-nav__item">
                   <a class="main-nav__link" href="#">Трикотаж</a>
                 </li>
                 <li class="main-nav__item">
@@ -76,7 +61,7 @@
                 </li>
               </ul>
               <ul class="main-nav__company">
-               <li class="main-nav__item">
+                <li class="main-nav__item">
                   <a class="main-nav__link" href="#">О бренде</a>
                 </li>
                 <li class="main-nav__item">
@@ -91,71 +76,453 @@
                 <li class="main-nav__item">
                   <a class="main-nav__link" href="#">Контакты</a>
                 </li>
-                <li class="main-nav__item">
+                <li class="main-nav__item main-nav__item--desktop">
                   <a class="main-nav__link" href="#">Отзывы</a>
+                </li>
+                <li class="main-nav__item mobile-only">
+                  <a class="main-nav__link" href="#">New</a>
+                </li>
+                <li class="main-nav__item mobile-only">
+                  <a class="main-nav__link" href="#">Sale</a>
+                </li>
+              </ul>
+              <ul class="main-nav__extra screen-only">
+                <li class="main-nav__item">
+                  <a class="main-nav__link" href="#">Sale</a>
                 </li>
                 <li class="main-nav__item">
                   <a class="main-nav__link" href="#">New</a>
                 </li>
                 <li class="main-nav__item">
-                  <a class="main-nav__link" href="#">Sale</a>
+                  <a class="main-nav__link" href="#">Looks</a>
                 </li>
-            </ul>
+                <li class="main-nav__item">
+                  <a class="main-nav__link" href="#">Блог</a>
+                </li>
+                <li class="main-nav__item">
+                  <a class="main-nav__link" href="#">Streetstyle</a>
+                </li>
+                <li class="main-nav__item main-nav__item--desktop">
+                  <a class="main-nav__link" href="#">Войти в личный кабинет</a>
+                </li>
+              </ul>
+              <ul class="main-nav__action desktop-only">
+                <li class="main-nav__item">
+                  <form class="main-nav--search desktop-only">
+                    <picture>
+                      <source media="(min-width: 1300px)" srcset="img/magnifying-glass-desktop.png">
+                      <img class="main-nav__search-icon main-nav__search-icon--desk" src="img/magnifying-glass.png" width="16" height="16" alt="Поиск по сайту">
+                    </picture>
+                    <input class="main-nav__search main-nav__search--tablet" id="search-site-nav-top" name="search" type="search" placeholder="Найти на сайте">
+                  </form>
+                </li>
+                <li class="main-nav__item">
+                  <a class="main-nav__link" href="#">Войти в личный кабинет</a>
+                </li>
+                <li class="main-nav__item">
+                  <a class="main-nav__link" href="#">Отзывы</a>
+                </li>
+              </ul>
+            </div>
+            <form class="main-nav--search-wrapper screen-only">
+              <picture>
+                <source media="(min-width: 1300px)" srcset="img/magnifying-glass-desktop.png">
+                <img class="main-nav__search-icon" src="img/magnifying-glass.png" width="16" height="16" alt="Поиск по сайту">
+              </picture>
+              <input class="main-nav__search main-nav__search--tablet" id="search-site-nav" name="search" type="search" placeholder="Найти на сайте">
+            </form>
+          </div>
+          <div class="main-nav__user-menu">
+            <input class="main-nav__search" id="search-site" name="search" type="search">
+            <label for="search-site">
+              <picture>
+                <source media="(min-width: 1300px)" srcset="img/magnifying-glass-desktop.png">
+                <img class="main-nav__search-main" src="img/magnifying-glass.png" width="16" height="16" alt="Поиск по сайту">
+              </picture>
+            </label>
+            <a class="main-nav__avatar" href="#">
+              <picture>
+                <source media="(min-width: 1300px)" srcset="img/avatar-desktop.png">
+                <img class="main-nav__avatar-icon" src="img/avatar.png" width="14" height="16" alt="Профиль пользователя.">
+              </picture>
+            </a>
+            <a class="main-nav__basket" href="#">
+              <picture>
+                  <source media="(min-width: 1300px)" srcset="img/shopping-bag-desktop.png">
+                  <img class="main-nav__basket-icon" src="img/shopping-bag.png" width="15" height="16" alt="Офомление заказа.">
+              </picture>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <p class="promo__sale screen-only">Распродажа  SS’18</p>
+    <section class="promo">
+      <div class="container container--header">
+        <picture>
+          <source type="image/webp" media="(min-width: 1300px)" srcset="img/header-top-bg-desktop.webp">
+          <source type="image/webp" media="(min-width: 768px)" srcset="img/header-top-bg-tablet.webp">
+          <source type="image/webp" srcset="img/header-top-bg.webp">
+          <source media="(min-width: 1300px)" srcset="img/header-top-bg-desktop.jpg">
+          <source media="(min-width: 768px)" srcset="img/header-top-bg-tablet.jpg">
+          <img class="promo__image" src="img/header-top-bg.jpg" width="219" height="389" alt="Девушка в профиль, в сером платье в крупную полоску с цветокм в руке и закрыми глазами.">
+        </picture>
+        <h2 class="promo__title">
+          Новая <br>
+          круизная <br class="mobile-only">
+          коллекция ‘19
+          <b class="promo__collection desktop-only">19</b>
+        </h2>
+        <a class="promo__link--catalog" href="#">Перейти в каталог</a>
+        <div class="promo__item screen-only">
+          <div class="promo__item-wrapper">
+            <h3 class="promo__item-title">Хлопковое платье в полоску</h3>
+            <p class="promo__item-price">9 900 рублей</p>
           </div>
         </div>
-        <div class="main-nav__user-menu">
-          <input class="main-nav__search" id="search-site" name="search" type="search">
-          <label for="search-site"><img src="img/magnifying-glass.png" width="16" height="16" alt="Поиск по сайту"></label>
-        </label>
-        <a class="main-nav__avatar" href="#">
-          <img src="img/avatar.png" width="14" height="16" alt="Профиль пользователя.">
-        </a>
-        <a class="main-nav__basket" href="#">
-          <img src="img/shopping-bag.png" width="15" height="16" alt="Офомление заказа.">
-        </a>
+        <div class="promo__bottom screen-only">
+          <ul class="promo__social">
+            <li class="promo__social-item"><a href="#" class="promo__social-link">Facebook</a></li>
+            <li class="promo__social-item"><a href="#" class="promo__social-link">Youtube</a></li>
+            <li class="promo__social-item"><a href="#" class="promo__social-link">Vkontakte</a></li>
+          </ul>
+          <div class="promo__action">
+            <div class="image-toggle image-toggle--promo">
+              <button class="image-toggle__btn image-toggle__btn--prev" type="button">
+                <span class="visually-hidden">Предедущий продукт</span>
+                <picture>
+                  <source media="(min-width: 1300px)" srcset="img/btn-prev-promo.png-desktop.png">
+                  <img src="img/btn-prev-promo.png.png" alt="">
+                </picture>
+              </button>
+              <span class="image-toggle__current-item image-toggle__current-item--promo">01/</span>
+              <sub class="image-toggle__numbers-items image-toggle__numbers-items--promo">3</sub>
+              <button class="image-toggle__btn image-toggle__btn--next" type="button">
+                <span class="visually-hidden">Следующий продукт</span>
+                <picture>
+                  <source media="(min-width: 1300px)" srcset="img/btn-next-promo-desktop.png">
+                  <img src="img/btn-next-promo.png" alt="">
+                </picture>
+              </button>
+            </div>
+            <a class="promo__view-all" href="#">Смотреть все</a>
+          </div>
+        </div>
       </div>
-    </nav>
-  </div>
-    <section class="promo">
-      <img class="promo__image" src="img/header-top-bg.jpg" width="219" height="389" alt="Девушка в профиль, в сером платье в крупную полоску с цветокм в руке и закрыми глазами.">
-      <h2 class="promo__title">
-        Новая <br>
-        круизная <br>
-        коллекция ‘19
-      </h2>
-      <a class="promo__link--catalog" href="#">Перейти в каталог</a>
     </section>
-  </div>
+    <ul class="pagintation pagintation--header desktop-only">
+      <li class="pagintation__item pagintation__item--active">
+        <a class="pagintation__link pagintation__link--active">01</a>
+      </li>
+      <li class="pagintation__item">
+        <a href="#arrivals" class="pagintation__link">02</a>
+      </li>
+      <li class="pagintation__item">
+        <a href="#about" class="pagintation__link">03</a>
+      </li>
+      <li class="pagintation__item">
+        <a href="#blog" class="pagintation__link">04</a>
+      </li>
+      <li class="pagintation__item">
+        <a href="#subscribe" class="pagintation__link">05</a>
+      </li>
+    </ul>
   </header>
   <main class="page-main">
-    <section class="arrivals">
+    <section class="arrivals" id="arrivals">
       <div class="container">
         <div class="arrivals__wrapper">
-          <h2 class="section__title">Новое  поступление</h2>
+          <h2 class="section-title section-title--arrivals">Новое  поступление</h2>
           <ul class="arrivals__list">
             <li class="arrivals__item"><a class="arrivals__link arrivals__link--active" href="#">Платья</a></li>
             <li class="arrivals__item"><a class="arrivals__link" href="#">Блузы и топы</a></li>
             <li class="arrivals__item"><a class="arrivals__link" href="#">Брюки и юбки</a></li>
           </ul>
           <div class="arrivals__slider">
-            <div class="arrivals__slider-item">
-              <img src="img/slide-1.jpg" width="244" height="356" alt="Девушка в оранжевом платье боди и черных каблуках.">
+            <div class="arrivals__slider-item arrivals__slider-item--active">
+              <picture>
+                <source type="image/webp" media="(min-width: 1300px)" srcset="img/slide-1-desktop.webp">
+                <source type="image/webp" media="(min-width: 768px)" srcset="img/slide-1-tablet.webp">
+                <source type="image/webp" srcset="img/slide-1.webp">
+                <source media="(min-width: 1300px)" srcset="img/slide-1-desktop.jpg">
+                <source media="(min-width: 768px)" srcset="img/slide-1-tablet.jpg">
+                <img class="arrivals__slider-image" src="img/slide-1.jpg" width="244" height="356" alt="Девушка в оранжевом платье боди и черных каблуках.">
+              </picture>
+              <button class="arrivals__slider-btn-small arrivals__slider-btn-small--prev" type="button" aria-label="Предыдущий слайд"></button>
+              <button class="arrivals__slider-btn-small arrivals__slider-btn-small--next" type="button" aria-label="Следующий слайд"></button>
               <h3 class="arrivals__slider-title">Платье - боди</h3>
               <p class="arrivals__slider-price">11 700 рублей</p>
             </div>
-            <button class="arrivals__slider-btn-small arrivals__slider-btn-small--prev" role="button" aria-label="Предыдущий слайд"></button>
-            <button class="arrivals__slider-btn-small arrivals__slider-btn-small--next" role="button" aria-label="Следующий слайд"></button>
+            <div class="arrivals__slider-item arrivals__slider-item--disable">
+              <picture>
+                <source type="image/webp" media="(min-width: 1300px)" srcset="img/slide-2-desktop.webp">
+                <source type="image/webp" media="(min-width: 768px)" srcset="img/slide-2-tablet.webp">
+                <source type="image/webp" srcset="img/slide-2.webp">
+                <source media="(min-width: 1300px)" srcset="img/slide-2-desktop.jpg">
+                <source media="(min-width: 768px)" srcset="img/slide-2-tablet.jpg">
+                <img class="arrivals__slider-image" src="img/slide-2.jpg" width="244" height="356" alt="Девушка в коричневом платье с эническим рисунком у светлой стены.">
+              </picture>
+              <button class="arrivals__slider-btn-small arrivals__slider-btn-small--prev" type="button" aria-label="Предыдущий слайд"></button>
+              <button class="arrivals__slider-btn-small arrivals__slider-btn-small--next" type="button" aria-label="Следующий слайд"></button>
+              <h3 class="arrivals__slider-title">Этническое платье</h3>
+              <p class="arrivals__slider-price">7 800 рублей</p>
+            </div>
+            <div class="arrivals__slider-item arrivals__slider-item--disable">
+              <picture>
+                <source type="image/webp" media="(min-width: 1300px)" srcset="img/slide-3-desktop.webp">
+                <source type="image/webp" media="(min-width: 768px)" srcset="img/slide-3-tablet.webp">
+                <source type="image/webp" srcset="img/slide-3.webp">
+                <source media="(min-width: 1300px)" srcset="img/slide-3-desktop.jpg">
+                <source media="(min-width: 768px)" srcset="img/slide-3-tablet.jpg">
+                <img class="arrivals__slider-image" src="img/slide-3.jpg" width="244" height="356" alt="Девушка в длинном розовом шелековом платье в цветочек.">
+              </picture>
+              <button class="arrivals__slider-btn-small arrivals__slider-btn-small--prev" type="button" aria-label="Предыдущий слайд"></button>
+              <button class="arrivals__slider-btn-small arrivals__slider-btn-small--next" type="button" aria-label="Следующий слайд"></button>
+              <h3 class="arrivals__slider-title">Шелковое платье <span class="desktop-only">с принтом</span></h3>
+              <p class="arrivals__slider-price">4 800 рублей</p>
+            </div>
           </div>
-          <button class="arrivals__slider-btn-big arrivals__slider-btn-big--prev" role="button" aria-label="Предыдущий слайд"></button>
-          <button class="arrivals__slider-btn-big arrivals__slider-btn-big--next" role="button" aria-label="Следующий слайд"></button>
+          <button class="arrivals__slider-btn-big arrivals__slider-btn-big--prev mobile-only" type="button" aria-label="Предыдущий слайд"></button>
+          <button class="arrivals__slider-btn-big arrivals__slider-btn-big--next mobile-only" type="button" aria-label="Следующий слайд"></button>
           <a class="arrivals__view-all" href="#">Смотреть все</a>
+        </div>
+      </div>
+      <ul class="pagintation pagintation--arrivals desktop-only">
+        <li class="pagintation__item pagintation__item--active">
+          <a class="pagintation__link pagintation__link--active">02</a>
+        </li>
+        <li class="pagintation__item">
+          <a href="#header" class="pagintation__link">01</a>
+        </li>
+        <li class="pagintation__item">
+          <a href="#about" class="pagintation__link">03</a>
+        </li>
+        <li class="pagintation__item">
+          <a href="#blog" class="pagintation__link">04</a>
+        </li>
+        <li class="pagintation__item">
+          <a href="#subscribe" class="pagintation__link">05</a>
+        </li>
+      </ul>
+    </section>
+    <section class="about" id="about">
+      <div class="container">
+        <h2 class="section-title section-title--about">О бренде</h2>
+        <div class="about__wrapper">
+          <div class="about__right-text">
+            <p class="about__text">
+              Концепция «свободной женщины» была придумана и создана основателем и дизайнером Кристиной Беккер
+              на нальном этапе воплощения ее в реальность.
+            </p>
+            <p class="about__text">
+              Идея разработки свободных кроем моделей с яркими дизайнерскими акцентами составляет основу бренда,
+              которая получила настоящий успех и имиджевую популярность
+            </p>
+          </div>
+          <div class="about__left-text">
+            <p class="about__text">
+            Ключевыми моделями бренда I AM WOMEN стали рубашки и брюки с безупречной посадкой; а также платья, подчеркивающие женсвенные формы и жилеты, вписывающиеся в любой гардероб своременой женщины. Каждая модель сохраняет свою актуальность в течение нескольких сезонов.
+          </p>
+          </div>
+        </div>
+      </div>
+      <ul class="pagintation pagintation--about desktop-only">
+        <li class="pagintation__item pagintation__item--active">
+          <a class="pagintation__link pagintation__link--active">03</a>
+        </li>
+        <li class="pagintation__item">
+          <a href="#header" class="pagintation__link">01</a>
+        </li>
+        <li class="pagintation__item">
+          <a href="#arrivals" class="pagintation__link">02</a>
+        </li>
+        <li class="pagintation__item">
+          <a href="#blog" class="pagintation__link">04</a>
+        </li>
+        <li class="pagintation__item">
+          <a href="#subscribe" class="pagintation__link">05</a>
+        </li>
+      </ul>
+    </section>
+    <section class="blog" id="blog">
+      <div class="container container--blog">
+        <div class="blog__wrapper">
+          <h2 class="section-title section-title--blog">Блог</h2>
+          <div class="blog__slider">
+            <article class="blog__item desktop-only">
+              <span class="blog__tag">#coветы</span>
+              <picture>
+                <source type="image/webp" media="(min-width: 1300px)" srcset="img/blog-item-0-desktop.webp">
+                <source type="image/webp" srcset="img/blog-item-0-desktop.webp">
+                <img class="blog__item-image" src="img/blog-item-0-desktop.jpg" width="401" height="618" alt="Девушка в чорном костюме и белой рубашке с очками в руках.">
+              </picture>
+
+              <h3 class="blog__item-title">Лучший выбор: костюмы’18</h3>
+              <p class="blog__item-text">
+                Проще говоря, выбирайте более светлые и более темные оттенки одного цвета, в конкретном случае — родственные фиолетовому. Такой образ может легко вписаться в рамки повседневной жизни
+              </p>
+            </article>
+            <article class="blog__item">
+              <span class="blog__tag">#новости</span>
+              <picture>
+                <source type="image/webp" media="(min-width: 1300px)" srcset="img/blog-item-1-desktop.webp">
+                <source type="image/webp" media="(min-width: 768px)" srcset="img/blog-item-1-tablet.webp">
+                <source type="image/webp" srcset="img/blog-item-1.webp">
+                <source media="(min-width: 1300px)" srcset="img/blog-item-1-desktop.jpg">
+                <source media="(min-width: 768px)" srcset="img/blog-item-1-tablet.jpg">
+                <img class="blog__item-image" src="img/blog-item-1.jpg" width="244" height="371" alt="Черно-белое фото с темнокожей девушкой с сержками, в черно-белом педжаке в мелкую клутку.">
+              </picture>
+              <h3 class="blog__item-title">Аксессуары осень — зима ‘18</h3>
+              <p class="blog__item-text">
+                Аксессуары являются важнейшим частью для создания целостного образа. Правильно подобранные украшения помогут сделать лук более гармоничным и стильным, ну а неправильно — испортят ваш лук
+              </p>
+            </article>
+            <article class="blog__item screen-only">
+              <span class="blog__tag">#советы</span>
+              <picture>
+                <source type="image/webp" media="(min-width: 1300px)" srcset="img/blog-item-2-desktop.webp">
+                <source type="image/webp" media="(min-width: 768px)" srcset="img/blog-item-2-tablet.webp">
+                <source media="(min-width: 1300px)" srcset="img/blog-item-2-desktop.jpg">
+                <source media="(min-width: 768px)" srcset="img/blog-item-2-tablet.jpg">
+                <source type="image/webp" srcset="img/blog-item-2.webp">
+                <img class="blog__item-image" src="img/blog-item-2.jpg" width="244" height="371" alt="Открытая черная женская сумочка лежайщая плашмя из котрой выпал телфон, часы, кошелек, помада, очки, кольца и косметика. Вид сверху.">
+              </picture>
+              <h3 class="blog__item-title">3 крутых образа для офиса</h3>
+              <p class="blog__item-text">
+                Кому-то нравится строгий стиль в одежде, а кому-то приходится его придерживаться из-за офисного дресс-кода. Так или иначе, не стоит превращать деловой стиль в скучный и консервативный
+              </p>
+            </article>
+            <article class="blog__item desktop-only">
+              <span class="blog__tag">#тенденции</span>
+              <picture>
+                <source type="image/webp" media="(min-width: 1300px)" srcset="img/blog-item-4-desktop.webp">
+                <source type="image/webp" srcset="img/blog-item-4-desktop.webp">
+                <img class="blog__item-image" src="img/blog-item-4-desktop.jpg" width="401" height="618" alt="Девушка в бежевом пальте, черном кардигане, белой рубашке и серых брюках.">
+              </picture>
+              <h3 class="blog__item-title">С чем носить ультрафиолет?</h3>
+              <p class="blog__item-text">
+                Уже не первый сезон монохромные образы являются одной из главных тенденций. Дизайнеры и стилисты призывают подбирать вещи в рамках одного сектора цветового круга
+              </p>
+            </article>
+          </div>
+          <div class="image-toggle image-toggle--blog">
+            <span class="image-toggle__current-item image-toggle__current-item--blog">01/</span>
+            <sub class="image-toggle__numbers__items image-toggle__numbers__items--blog">4</sub>
+            <div class="blog__range-contrlos">
+              <div class="blog__scale">
+                <div class="blog__bar"></div>
+              </div>
+            </div>
+          </div>
+          <p class="blog__link"><a class="blog__more" href="#">Перейти в блог</a></p>
+        </div>
+      </div>
+    </section>
+    <section class="subscribe" id="subscribe">
+      <h2 class="visually-hidden">Подписка на новости</h2>
+      <div class="container">
+        <div class="subscribe__wrapper">
+          <p class="subscribe__text">
+            Подпишись на новости <br class="mobile-only">
+            I AM WOMEN <br>
+            и получите скидку 5% <br class="mobile-only">
+            на следующую покупку
+          </p>
+          <form class="subscribe__form" method="post" action="https://echo.htmlacademy.ru">
+            <label class="visually-hidden" for="subscribe-email">Почта</label>
+            <input class="subscribe__email user-email" id="subscribe-email" type="email" name="email-subscribe" placeholder="Ваш E-mail">
+            <button class="subscribe__button" type="submit">Подписаться</button>
+          </form>
+          <p class="subscribe__data">
+            Подписываясь на новости, вы даёте согласие <br>
+            на обработку персональных данных
+          </p>
         </div>
       </div>
     </section>
   </main>
   <footer class="page-footer">
-
+    <div class="container container--footer-columns">
+      <section class="page-footer__nav desktop-only">
+        <h2 class="visually-hidden">Навигация</h2>
+        <ul class="footer-menu footer-menu--main">
+          <li class="footer-menu__item"><a href="#" class="footer-menu__link">Каталог</a></li>
+          <li class="footer-menu__item"><a href="#" class="footer-menu__link">Пальто</a></li>
+          <li class="footer-menu__item"><a href="#" class="footer-menu__link">Жилеты и жакеты</a></li>
+          <li class="footer-menu__item"><a href="#" class="footer-menu__link">Костюмы</a></li>
+          <li class="footer-menu__item"><a href="#" class="footer-menu__link">Трикотаж</a></li>
+          <li class="footer-menu__item"><a href="#" class="footer-menu__link">Платья</a></li>
+          <li class="footer-menu__item"><a href="#" class="footer-menu__link">Блузы и топы</a></li>
+          <li class="footer-menu__item"><a href="#" class="footer-menu__link">Футболки</a></li>
+          <li class="footer-menu__item"><a href="#" class="footer-menu__link">Юбки и брюки</a></li>
+          <li class="footer-menu__item"><a href="#" class="footer-menu__link">Аксессуары</a></li>
+        </ul>
+        <ul class="footer-menu footer-menu--company">
+          <li class="footer-menu__item"><a href="#" class="footer-menu__link">О бренде</a></li>
+          <li class="footer-menu__item"><a href="#" class="footer-menu__link">Оферта</a></li>
+          <li class="footer-menu__item"><a href="#" class="footer-menu__link">Оплата и доставка</a></li>
+          <li class="footer-menu__item"><a href="#" class="footer-menu__link">Возврат</a></li>
+          <li class="footer-menu__item"><a href="#" class="footer-menu__link">Контакты</a></li>
+        </ul>
+        <ul class="footer-menu footer-menu--extra">
+          <li class="footer-menu__item"><a href="#" class="footer-menu__link">Sale</a></li>
+          <li class="footer-menu__item"><a href="#" class="footer-menu__link">New</a></li>
+          <li class="footer-menu__item"><a href="#" class="footer-menu__link">Looks</a></li>
+          <li class="footer-menu__item"><a href="#" class="footer-menu__link">Блог</a></li>
+        </ul>
+      </section>
+      <section class="page-footer__contacts">
+        <h2 class="visually-hidden">Контакты</h2>
+        <div class="page-footer__wrapper">
+          <div class="page-footer__text">
+            <h3 class="page-footer__title">Звонок с сайта:</h3>
+            <h3 class="page-footer__title mobile-only">Присоединяйся:</h3>
+            <h3 class="page-footer__title page-footer__title--join screen-only">Присоединяйся к нам:</h3>
+            <h3 class="page-footer__title page-footer__title--desk desktop-only">Получи скидку 5%</h3>
+            <h3 class="page-footer__title screen-only">Принимаем к оплате:</h3>
+          </div>
+          <div class="page-footer__data">
+            <a class="page-footer__phone" href="tel:+74957929312">+7 495 792 93 12</a>
+            <ul class="page-footer__scial social">
+              <li class="social__item"><a class="social__link" href="https://facebook.com">Facebook</a></li>
+              <li class="social__item"><a class="social__link" href="https://youtube.com">Youtube</a></li>
+              <li class="social__item"><a class="social__link" href="https://vk.com">Vkontakte</a></li>
+            </ul>
+            <form class="contacts__disc-form desktop-only" method="post" action="https://echo.htmlacademy.ru">
+              <label class="visually-hidden" for="disc-email">Почта</label>
+              <input class="user-email user-email--disc" id="disc-email" type="email" name="email-subscribe" placeholder="Ваш E-mail">
+            </form>
+            <ul class="page-footer__payment payment screen-only">
+              <li class="payment__item">
+                <picture>
+                  <source media="(min-width: 1300px)" srcset="img/visa-desktop.png">
+                  <img class="payment__item--visa" src="img/visa.png" width="36" height="36" alt="Оплата с помощщью Виза.">
+                </picture>
+              </li>
+              <li class="payment__item">
+                <picture>
+                  <source media="(min-width: 1300px)" srcset="img/mastercard-desktop.png">
+                  <img class="payment__item--mastercard" src="img/mastercard.png"  width="57" height="36" alt="Оплата с помощщью Масетр Кард.">
+                </picture>
+              </li>
+              <li class="payment__item">
+                <picture>
+                  <source media="(min-width: 1300px)" srcset="img/paypal-desktop.png">
+                  <img class="payment__item--paypal" src="img/paypal.png" width="36" height="36" alt="Оплата с помощщью Пэй Пал.">
+                </picture>
+              </li>
+            </ul>
+            <p class="page-footer__payment-desc screen-only">
+              Вы можете оплатить наличными при <br>
+              получении либо выбрать другой <a class="page-footer__payment-link" href="">способ оплаты</a>
+            </p>
+          </div>
+        </div>
+        <p class="page-footer__copyright">&copy; 2008–2019 I AM WOMEN</p>
+      </section>
+    </div>
   </footer>
+  <script src="js/picturefill.min.js"></script>
   <script src="js/main.min.js"></script>
 </body>
 </html>

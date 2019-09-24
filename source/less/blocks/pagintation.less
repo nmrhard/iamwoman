@@ -1,0 +1,55 @@
+@media (min-width: @desktop-width) {
+  .pagintation {
+    position: absolute;
+    right: 101px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    list-style-type: none;
+
+    &--header {
+      top: 262px;
+    }
+
+    &--arrivals {
+      top: 411px;
+      right: 55px;
+    }
+
+    &--about {
+      top: 650px;
+      right: 55px;
+    }
+  }
+
+  .pagintation__item {
+    margin-bottom: 30px;
+
+    &--active {
+      position: relative;
+      margin-bottom: 128px;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 30px;
+        left: 50%;
+        width: 1px;
+        height: 94px;
+        background-color: @font-dark;
+      }
+    }
+  }
+
+  .pagintation__link {
+    font-size: 12px;
+    font-family: "Open Sans", "Arial", sans-serif;
+    color: @font-dark;
+
+    &--active {
+      font-size: 16px;
+      font-weight: 600;
+      color: #91171d;
+    }
+  }
+}

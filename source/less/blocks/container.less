@@ -1,3 +1,41 @@
 .container {
   .mobile-container;
 }
+
+@media (min-width: @tablet-width) {
+  .container {
+    .tablet-container;
+
+    &--header {
+      position: relative;
+      width: 644px;
+    }
+
+    &--static {
+      position: static;
+    }
+  }
+}
+
+@media (min-width: @desktop-width) {
+  .container {
+    .desktop-container;
+
+    &--header {
+      position: static;
+      width: 1090px;
+      margin: 0;
+      padding-left: 130px;
+    }
+
+    &--blog {
+      width: 100%;
+      padding: 0;
+    }
+
+    &--footer-columns {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

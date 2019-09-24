@@ -6,15 +6,15 @@
   &::after {
     content: "";
     position: absolute;
-    left: 0px;
-    top: 0px;
+    left: 0;
+    top: 0;
     width: 100%;
     height: 100%;
     z-index: -2;
   }
 
   &::before {
-    background-image: linear-gradient( 113deg, rgba(236,229,225,0) 0%, rgb(236,229,225) 100%);
+    background-image: linear-gradient(113deg, rgba(236, 229, 225, 0) 0%, rgb(236, 229, 225) 100%);
     opacity: 0.4;
   }
 
@@ -32,3 +32,68 @@
   padding-bottom: 11px;
 }
 
+@media (min-width: @tablet-width) {
+  .no-webp .page-header {
+    background: url("../../img/header-behind-bg-tablet.jpg"), linear-gradient(to right, #ece5e1 7%, @white 7%, @white 60%, #f0eae7 60%);
+    background-size: 40% auto, 100% auto;
+    background-position: right;
+    background-repeat: no-repeat;
+
+    &::before,
+    &::after {
+      display: none;
+    }
+
+    &--open-menu {
+      background: linear-gradient(to right, #decec5 7%, @white 7%, @white 60%, #f0eae7 60%);
+    }
+  }
+
+  .webp .page-header {
+    background: url("../../img/header-behind-bg-tablet.webp"), linear-gradient(to right, #ece5e1 7%, @white 7%, @white 60%, #f0eae7 60%);
+    background-size: 40% auto, 100% auto;
+    background-position: right;
+    background-repeat: no-repeat;
+
+    &::before,
+    &::after {
+      display: none;
+    }
+
+    &--open-menu {
+      background: linear-gradient(to right, #decec5 7%, @white 7%, @white 60%, #f0eae7 60%);
+    }
+  }
+
+  .page-header__top {
+    padding-top: 33px;
+  }
+}
+
+@media (min-width: @desktop-width) {
+  .no-webp .page-header {
+    background: url("../../img/header-behind-bg-desktop.jpg"), linear-gradient(to right, #ece5e1 5%, @white 5%, @white 60%, #f0eae7 60%);
+    background-position: right top;
+    background-repeat: no-repeat;
+
+    &--open-menu {
+      background: linear-gradient(to right, #decec5 6%, @white 6%, @white 60%, #f0eae7 60%);
+    }
+  }
+
+  .webp .page-header {
+    background: url("../../img/header-behind-bg-desktop.webp"), linear-gradient(to right, #ece5e1 5%, @white 5%, @white 60%, #f0eae7 60%);
+    background-position: right top;
+    background-repeat: no-repeat;
+
+    &--open-menu {
+      background: linear-gradient(to right, #decec5 6%, @white 6%, @white 60%, #f0eae7 60%);
+    }
+  }
+
+
+
+  .page-header__top {
+    padding-top: 35px;
+  }
+}
